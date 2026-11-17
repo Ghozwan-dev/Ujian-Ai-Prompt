@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Cari Barang Hilang - Barang Temuan">
+  <title>Cari Barang Hilang — Barang Temuan</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/cari-barang.css">
+</head>
+<body>
+
+  <!-- Mobile Frame Container -->
+  <div class="mobile-frame">
+
+    <!-- Status Bar (08:40, Signal, Wi-Fi, Battery) -->
+    <div class="status-bar" aria-label="Status Bar">
+      <span class="status-time">08:40</span>
+      <div class="status-icons">
+        <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor" aria-hidden="true">
+          <rect x="0" y="8" width="2.5" height="3" rx="0.5"></rect>
+          <rect x="4" y="5.5" width="2.5" height="5.5" rx="0.5"></rect>
+          <rect x="8" y="3" width="2.5" height="8" rx="0.5"></rect>
+          <rect x="12" y="0" width="2.5" height="11" rx="0.5"></rect>
+        </svg>
+        <svg width="15" height="11" viewBox="0 0 16 12" fill="currentColor" aria-hidden="true">
+          <path d="M8 9.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"></path>
+          <path d="M4.2 7.7a5.5 5.5 0 0 1 7.6 0 .8.8 0 0 1-1.1 1.1 4 4 0 0 0-5.4 0 .8.8 0 0 1-1.1-1.1z"></path>
+          <path d="M1.5 5a9.2 9.2 0 0 1 13 0 .8.8 0 0 1-1.1 1.1 7.6 7.6 0 0 0-10.8 0 .8.8 0 0 1-1.1-1.1z"></path>
+        </svg>
+        <svg width="22" height="11" viewBox="0 0 24 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+          <rect x="1" y="1" width="19" height="10" rx="3"></rect>
+          <rect x="3" y="3" width="12" height="6" rx="1.5" fill="currentColor"></rect>
+          <path d="M22 4.5v3" stroke-linecap="round"></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- 1. Header -->
+    <header class="app-header">
+      <a href="index.html" class="btn-back" title="Kembali ke Beranda" aria-label="Kembali ke Beranda">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </a>
+      <h1 class="header-title">Cari Barang Hilang</h1>
+    </header>
+
+    <!-- Main Scrollable Content -->
+    <div class="search-content">
+
+      <!-- 2. Ilustrasi Utama (Kaca Pembesar Biru & Ungu + Garis Kuning) -->
+      <div class="illustration-wrap">
+        <img 
+          src="assets/search-illustration.png" 
+          alt="Cari Barang Hilang" 
+          class="search-illustration"
+          width="136"
+          height="126"
+        >
+      </div>
+
+      <!-- 3. Judul dan Deskripsi -->
+      <h2 class="search-title">Cari Kecocokan<br>Barang &amp; Pemilik</h2>
+      <p class="search-desc">
+        Masukkan informasi barang<br>
+        yang Anda temukan atau<br>
+        kehilangan
+      </p>
+
+      <!-- 4. Pilihan Kategori Pencarian (Horizontal Toggle) -->
+      <div class="category-toggle-group" role="tablist" aria-label="Kategori Pencarian">
+        <button 
+          type="button" 
+          class="btn-toggle-cat active" 
+          id="btnCatFound" 
+          role="tab" 
+          aria-selected="true" 
+          data-type="Ditemukan"
+        >
+          Barang Ditemukan
+        </button>
+        <button 
+          type="button" 
+          class="btn-toggle-cat" 
+          id="btnCatLost" 
+          role="tab" 
+          aria-selected="false" 
+          data-type="Hilang"
+        >
+          Barang Hilang
+        </button>
+      </div>
+
+      <!-- 5. Form Pencarian -->
+      <form class="search-form" id="searchForm" onsubmit="event.preventDefault();">
+
+        <!-- A. Input Nama Barang -->
+        <div class="input-field-wrap">
+          <span class="field-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </span>
+          <input 
+            type="text" 
+            id="searchNameInput" 
+            class="field-input" 
+            placeholder="Contoh : Jam Tangan" 
+            aria-label="Nama Barang"
+          >
+        </div>
+
+        <!-- B. Dropdown Kategori -->
+        <button type="button" class="dropdown-btn" id="categorySelectBtn" aria-haspopup="dialog" aria-label="Pilih Kategori">
+          <div class="dropdown-left">
+            <span class="field-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+            </span>
+            <span class="dropdown-text" id="categoryText">Kategori</span>
+          </div>
+          <svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <input type="hidden" id="selectedCategory" value="">
+
+        <!-- C. Dropdown Lokasi -->
+        <button type="button" class="dropdown-btn" id="locationSelectBtn" aria-haspopup="dialog" aria-label="Pilih Lokasi">
+          <div class="dropdown-left">
+            <span class="field-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </span>
+            <span class="dropdown-text" id="locationText">Pilih Lokasi</span>
+          </div>
+          <svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <input type="hidden" id="selectedLocation" value="">
+
+        <!-- 6. Tombol Pencarian Utama -->
+        <button type="button" class="btn-submit-search" id="btnSearch">Cari Kecocokan</button>
+
+      </form>
+
+      <!-- 7. Lihat Semua Laporan -->
+      <button type="button" class="btn-view-all" id="btnViewAll">
+        <span>Lihat Semua Laporan</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
+      <!-- 8. Section Hasil Pencarian -->
+      <section class="results-section" id="resultsSection" style="display: none;">
+        <div class="results-header">
+          <h3 class="results-title" id="resultsTitle">Hasil Pencarian</h3>
+          <span class="results-count" id="resultsCount">0 laporan ditemukan</span>
+        </div>
+        <div class="results-list" id="resultsList"></div>
+      </section>
+
+    </div>
+
+    <!-- Home Indicator -->
+    <div class="bottom-bar" aria-hidden="true">
+      <div class="home-indicator"></div>
+    </div>
+
+  </div>
+
+  <!-- Modal Kategori -->
+  <div class="custom-modal" id="categoryModal" aria-hidden="true" role="dialog" aria-label="Pilih Kategori Barang">
+    <div class="custom-sheet">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <div class="sheet-header">
+        <h3 class="sheet-title">Pilih Kategori</h3>
+        <button type="button" class="sheet-close-btn" id="categoryCloseBtn" aria-label="Tutup">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <ul class="sheet-list" id="categoryList">
+        <li class="sheet-item" data-value="">Semua Kategori</li>
+        <li class="sheet-item" data-value="Aksesoris">Aksesoris</li>
+        <li class="sheet-item" data-value="Elektronik">Elektronik</li>
+        <li class="sheet-item" data-value="Kendaraan">Kendaraan</li>
+        <li class="sheet-item" data-value="Dokumen">Dokumen &amp; Kartu</li>
+        <li class="sheet-item" data-value="Pakaian & Tas">Pakaian &amp; Tas</li>
+        <li class="sheet-item" data-value="Lainnya">Lainnya</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Modal Lokasi -->
+  <div class="custom-modal" id="locationModal" aria-hidden="true" role="dialog" aria-label="Pilih Lokasi Pencarian">
+    <div class="custom-sheet">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <div class="sheet-header">
+        <h3 class="sheet-title">Pilih Lokasi</h3>
+        <button type="button" class="sheet-close-btn" id="locationCloseBtn" aria-label="Tutup">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <input type="text" id="locationSearchInput" class="sheet-search-input" placeholder="Cari nama lokasi...">
+      <ul class="sheet-list" id="locationList">
+        <li class="sheet-item" data-value="">Semua Lokasi</li>
+        <li class="sheet-item" data-value="Pom Bensin Waru">Pom Bensin Waru</li>
+        <li class="sheet-item" data-value="Mts Gaccan Solo">Mts Gaccan Solo</li>
+        <li class="sheet-item" data-value="Kamtout UMS">Kamtout UMS</li>
+        <li class="sheet-item" data-value="Solo Grand Mall">Solo Grand Mall</li>
+        <li class="sheet-item" data-value="Stasiun Solo Balapan">Stasiun Solo Balapan</li>
+        <li class="sheet-item" data-value="Terminal Tirtonadi">Terminal Tirtonadi</li>
+        <li class="sheet-item" data-value="Masjid Raya Sheikh Zayed">Masjid Raya Sheikh Zayed</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/cari-barang.js"></script>
+</body>
+</html>

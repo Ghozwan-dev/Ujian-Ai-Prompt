@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Hasil Pencocokan - Barang Temuan">
+  <title>Hasil Pencocokan — Barang Temuan</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/hasil-pencocokan.css">
+</head>
+<body>
+
+  <!-- Mobile Frame Container -->
+  <main class="mobile-frame" role="main">
+
+    <!-- Status Bar (08:40, Signal, Wi-Fi, Battery) -->
+    <div class="status-bar" aria-label="Status Bar">
+      <span class="status-time">08:40</span>
+      <div class="status-icons">
+        <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor" aria-hidden="true">
+          <rect x="0" y="8" width="2.5" height="3" rx="0.5"></rect>
+          <rect x="4" y="5.5" width="2.5" height="5.5" rx="0.5"></rect>
+          <rect x="8" y="3" width="2.5" height="8" rx="0.5"></rect>
+          <rect x="12" y="0" width="2.5" height="11" rx="0.5"></rect>
+        </svg>
+        <svg width="15" height="11" viewBox="0 0 16 12" fill="currentColor" aria-hidden="true">
+          <path d="M8 9.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"></path>
+          <path d="M4.2 7.7a5.5 5.5 0 0 1 7.6 0 .8.8 0 0 1-1.1 1.1 4 4 0 0 0-5.4 0 .8.8 0 0 1-1.1-1.1z"></path>
+          <path d="M1.5 5a9.2 9.2 0 0 1 13 0 .8.8 0 0 1-1.1 1.1 7.6 7.6 0 0 0-10.8 0 .8.8 0 0 1-1.1-1.1z"></path>
+        </svg>
+        <svg width="22" height="11" viewBox="0 0 24 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+          <rect x="1" y="1" width="19" height="10" rx="3"></rect>
+          <rect x="3" y="3" width="12" height="6" rx="1.5" fill="currentColor"></rect>
+          <path d="M22 4.5v3" stroke-linecap="round"></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- 1. Header -->
+    <header class="app-header">
+      <a href="cari-barang.html" class="btn-back" title="Kembali ke Cari Barang" aria-label="Kembali ke Cari Barang">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </a>
+      <h1 class="header-title">Hasil Pencocokan</h1>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="content-area">
+
+      <!-- 2. Ilustrasi Utama (Kotak Paket Oranye + Centang Hijau + Aksen Kuning) -->
+      <div class="illustration-wrap">
+        <img 
+          src="assets/success-package.png" 
+          alt="Ditemukan Kecocokan" 
+          class="match-illustration"
+          width="148"
+          height="136"
+        >
+      </div>
+
+      <!-- 3. Judul dan Deskripsi -->
+      <h2 class="match-title">Ditemukan Kecocokan</h2>
+      <p class="match-desc">
+        Barang Anda cocok dengan<br>
+        laporan pemilik.
+      </p>
+
+      <!-- 4. Kartu Hasil Pencocokan -->
+      <div class="cards-container" id="matchContainer">
+        <div class="match-card" id="primaryCard">
+          <!-- Foto Profil (Ikon profil pengguna berwarna hitam) -->
+          <div class="profile-avatar-wrap">
+            <svg class="profile-avatar-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+            </svg>
+          </div>
+
+          <!-- Informasi Pengguna -->
+          <div class="profile-info">
+            <div class="profile-name" id="userName">Rina Amelia</div>
+            <div class="report-number" id="reportNumber">#4867284-01</div>
+            <div class="report-date" id="reportDate">20 Nov 2026</div>
+          </div>
+        </div>
+
+        <!-- 5. Tombol Lihat Detail (Tepat di bawah kartu) -->
+        <a href="detail-temuan.html" class="btn-view-detail" id="btnViewDetail">Lihat Detail</a>
+      </div>
+
+    </div>
+
+    <!-- Home Indicator -->
+    <div class="bottom-bar" aria-hidden="true">
+      <div class="home-indicator"></div>
+    </div>
+
+  </main>
+
+  <script src="js/hasil-pencocokan.js"></script>
+</body>
+</html>

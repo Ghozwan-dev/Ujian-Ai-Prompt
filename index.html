@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Barang Temuan - Temukan kembali barang yang hilang dan laporkan barang temuan dengan mudah dan terpercaya.">
+  <title>Barang Temuan — Temukan. Kembalikan. Peduli.</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;850&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+  <!-- Mobile Device Frame Container -->
+  <div class="mobile-frame">
+
+    <!-- Status Bar (08:40, Signal, Wi-Fi, Battery) -->
+    <div class="status-bar" aria-label="Status Bar">
+      <span class="status-time">08:40</span>
+      <div class="status-icons">
+        <!-- Cellular Signal -->
+        <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor" aria-hidden="true">
+          <rect x="0" y="8" width="2.5" height="3" rx="0.5"></rect>
+          <rect x="4" y="5.5" width="2.5" height="5.5" rx="0.5"></rect>
+          <rect x="8" y="3" width="2.5" height="8" rx="0.5"></rect>
+          <rect x="12" y="0" width="2.5" height="11" rx="0.5"></rect>
+        </svg>
+        <!-- Wi-Fi -->
+        <svg width="15" height="11" viewBox="0 0 16 12" fill="currentColor" aria-hidden="true">
+          <path d="M8 9.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"></path>
+          <path d="M4.2 7.7a5.5 5.5 0 0 1 7.6 0 .8.8 0 0 1-1.1 1.1 4 4 0 0 0-5.4 0 .8.8 0 0 1-1.1-1.1z"></path>
+          <path d="M1.5 5a9.2 9.2 0 0 1 13 0 .8.8 0 0 1-1.1 1.1 7.6 7.6 0 0 0-10.8 0 .8.8 0 0 1-1.1-1.1z"></path>
+        </svg>
+        <!-- Battery with Pill -->
+        <svg width="22" height="11" viewBox="0 0 24 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+          <rect x="1" y="1" width="19" height="10" rx="3"></rect>
+          <rect x="3" y="3" width="12" height="6" rx="1.5" fill="currentColor"></rect>
+          <path d="M22 4.5v3" stroke-linecap="round"></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Header & Logo Barang Temuan -->
+    <header class="app-header">
+      <a href="index.html" title="Barang Temuan">
+        <img src="assets/logo.png" alt="Logo Barang Temuan" class="header-logo">
+      </a>
+      <button type="button" class="btn-notification" aria-label="Notifikasi" title="Notifikasi">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="app-content">
+
+      <!-- Hero Section -->
+      <section class="hero-section" aria-label="Hero Barang Hilang atau Ditemukan">
+        <div class="hero-left">
+          <h1 class="hero-title">
+            Barang Hilang<br>
+            atau Ditemukan?<br>
+            <span class="hero-highlight">Tenang, di Sini Saja!</span>
+          </h1>
+          <div class="hero-bar" aria-hidden="true"></div>
+          <p class="hero-desc">
+            Laporkan, cari dan temukan<br>
+            barang dengan mudah &amp; terpercaya
+          </p>
+          <!-- Tombol Mulai Sekarang -->
+          <a href="login.html" class="btn-hero" title="Mulai Sekarang">
+            <span>Mulai Sekarang</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </a>
+        </div>
+        <div class="hero-right">
+          <img src="assets/hero-illustration.png" alt="Ilustrasi Pencarian Barang Temuan" class="hero-img">
+        </div>
+      </section>
+
+      <!-- Tiga Fitur Utama -->
+      <section class="features-grid" aria-label="Fitur Utama">
+        <!-- Fitur 1: Lapor barang yang hilang -->
+        <a href="lapor-hilang.html" class="feature-card card-lost" title="Lapor barang yang hilang">
+          <img src="assets/icon-sad-backpack.png" alt="Lapor barang hilang" class="feature-card-img">
+          <span class="feature-card-title">Lapor barang<br>yang hilang</span>
+          <span class="feature-arrow-btn" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </a>
+
+        <!-- Fitur 2: Lapor barang yang ditemukan -->
+        <a href="lapor-temuan.html" class="feature-card card-found" title="Lapor barang yang ditemukan">
+          <img src="assets/icon-box-check.png" alt="Lapor barang ditemukan" class="feature-card-img">
+          <span class="feature-card-title">Lapor barang<br>yang ditemukan</span>
+          <span class="feature-arrow-btn" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </a>
+
+        <!-- Fitur 3: Cari barang hilang -->
+        <a href="cari-barang.html" class="feature-card card-search" title="Cari barang hilang">
+          <img src="assets/icon-folder-lens.png" alt="Cari barang hilang" class="feature-card-img">
+          <span class="feature-card-title">Cari barang<br>hilang</span>
+          <span class="feature-arrow-btn" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </a>
+      </section>
+
+      <!-- Section: Terbaru & Terpercaya -->
+      <section class="latest-section" aria-label="Terbaru & Terpercaya">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-bar" aria-hidden="true"></span>
+            <h2 class="section-title">Terbaru &amp; Terpercaya</h2>
+          </div>
+          <a href="cari-barang.html" class="see-all-link" id="seeAllLatestBtn" title="Lihat Semua Barang">
+            <span>Lihat Semua</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Horizontal Cards Slider -->
+        <div class="items-slider" id="latestItemsSlider" role="region" aria-label="Daftar Barang Terbaru">
+
+          <!-- Card 1: Motor SupraX -->
+          <article class="item-card" data-id="LH-SUPRA-01" data-tipe="Hilang" role="button" tabindex="0" aria-label="Detail Motor SupraX">
+            <div class="item-img-wrap">
+              <span class="item-badge badge-hilang">Hilang</span>
+              <img src="assets/item-supra.png" alt="Motor SupraX" class="item-img" draggable="false">
+            </div>
+            <div class="item-info">
+              <div class="item-name-row">
+                <span class="item-name" title="Motor SupraX">Motor SupraX</span>
+                <svg class="item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </div>
+              <div class="item-meta-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Mts Gaccan Solo</span>
+              </div>
+              <div class="item-date-row">
+                <div class="item-date-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  <span>01 Des 2026</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Jam Tangan -->
+          <article class="item-card" data-id="LT-JAM-01" data-tipe="Ditemukan" role="button" tabindex="0" aria-label="Detail Jam Tangan">
+            <div class="item-img-wrap">
+              <span class="item-badge badge-ditemukan">Ditemukan</span>
+              <img src="assets/item-jam.png" alt="Jam Tangan" class="item-img" draggable="false">
+            </div>
+            <div class="item-info">
+              <div class="item-name-row">
+                <span class="item-name" title="Jam Tangan">Jam Tangan</span>
+                <svg class="item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </div>
+              <div class="item-meta-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Pom Bensin Waru</span>
+              </div>
+              <div class="item-date-row">
+                <div class="item-date-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  <span>28 Nov 2026</span>
+                </div>
+                <svg class="item-user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <circle cx="12" cy="9" r="3"></circle>
+                  <path d="M6.168 18.849a4 4 0 0 1 3.832-2.849h4a4 4 0 0 1 3.832 2.849"></path>
+                </svg>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Iphone 18 Pro 1 Tb -->
+          <article class="item-card" data-id="LH-IPHONE-01" data-tipe="Hilang" role="button" tabindex="0" aria-label="Detail Iphone 18 Pro 1 Tb">
+            <div class="item-img-wrap">
+              <span class="item-badge badge-hilang">Hilang</span>
+              <img src="assets/item-iphone.png" alt="Iphone 18 Pro 1 Tb" class="item-img" draggable="false">
+            </div>
+            <div class="item-info">
+              <div class="item-name-row">
+                <span class="item-name" title="Iphone 18 Pro 1 Tb">Iphone 18 Pro 1 Tb</span>
+                <svg class="item-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </div>
+              <div class="item-meta-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Kamtout UMS</span>
+              </div>
+              <div class="item-date-row">
+                <div class="item-date-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  <span>16 Nov 2026</span>
+                </div>
+                <svg class="item-user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <circle cx="12" cy="9" r="3"></circle>
+                  <path d="M6.168 18.849a4 4 0 0 1 3.832-2.849h4a4 4 0 0 1 3.832 2.849"></path>
+                </svg>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Pagination Dots -->
+        <div class="pagination-dots" role="tablist" aria-label="Indikator Halaman Kartu">
+          <button type="button" class="dot active" data-index="0" role="tab" aria-selected="true" aria-label="Kartu 1"></button>
+          <button type="button" class="dot" data-index="1" role="tab" aria-selected="false" aria-label="Kartu 2"></button>
+          <button type="button" class="dot" data-index="2" role="tab" aria-selected="false" aria-label="Kartu 3"></button>
+        </div>
+      </section>
+
+      <!-- Section: Informasi Aman & Terpercaya -->
+      <section class="trust-banner" aria-label="Informasi Keamanan">
+        <img src="assets/shield-verified.png" alt="Verifikasi Keamanan" class="trust-shield-img">
+        <div class="trust-content">
+          <h3 class="trust-title">Aman &amp; Terpercaya</h3>
+          <p class="trust-desc">Dengan sistem veryfikasi, barang akan diberikan kepada pemilik yang benar.</p>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav" aria-label="Navigasi Utama">
+      <div class="nav-items">
+        <!-- 1. Beranda (Active) -->
+        <a href="index.html" class="nav-item active" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 3l9 8h-3v9h-4v-6h-4v6H6v-9H3l9-8z"></path>
+          </svg>
+          <span>Beranda</span>
+        </a>
+
+        <!-- 2. Cari -->
+        <a href="cari-barang.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Cari</span>
+        </a>
+
+        <!-- 3. Riwayat -->
+        <a href="login.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 8v4l3 3"></path>
+            <path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5"></path>
+          </svg>
+          <span>Riwayat</span>
+        </a>
+
+        <!-- 4. Pesan -->
+        <a href="login.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+          </svg>
+          <span>Pesan</span>
+        </a>
+
+        <!-- 5. Saya -->
+        <a href="login.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Saya</span>
+        </a>
+      </div>
+
+      <!-- Home Indicator -->
+      <div class="home-indicator" aria-hidden="true"></div>
+    </nav>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/home.js"></script>
+</body>
+</html>

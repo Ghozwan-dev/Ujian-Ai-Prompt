@@ -1,0 +1,333 @@
+/**
+ * PROJECT BARANG TEMUAN — DETAIL LAPORAN STYLESHEET
+ * Konsisten dengan Identitas Visual Aplikasi & Mobile Layout
+ */
+
+:root {
+  --color-primary-blue: #1768db;
+  --color-primary-light: #e0edff;
+  --color-dark-blue: #0b3b82;
+  --color-green: #22c55e;
+  --color-green-light: #dcfce7;
+  --color-text-main: #0f172a;
+  --color-text-muted: #64748b;
+  --color-border: #e2e8f0;
+  --color-bg-page: #f1f5f9;
+  --color-white: #ffffff;
+  --shadow-card: 0 4px 16px rgba(15, 23, 42, 0.05);
+  --shadow-btn: 0 6px 18px rgba(23, 104, 219, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--color-bg-page);
+  color: var(--color-text-main);
+  font-family: 'Plus Jakarta Sans', Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+}
+
+@media (min-width: 480px) {
+  body {
+    padding: 24px 0;
+  }
+}
+
+/* Mobile Frame Container */
+.mobile-frame {
+  width: 100%;
+  max-width: 414px;
+  min-height: 100vh;
+  background-color: var(--color-white);
+  position: relative;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 480px) {
+  .mobile-frame {
+    border-radius: 36px;
+    outline: 8px solid #0f172a;
+    min-height: 840px;
+    margin-bottom: 24px;
+  }
+}
+
+/* Status Bar */
+.status-bar {
+  height: 38px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.2px;
+  user-select: none;
+  background: var(--color-white);
+  flex-shrink: 0;
+}
+
+.status-time {
+  font-size: 13.5px;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Header */
+.app-header {
+  height: 52px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-white);
+  position: relative;
+  border-bottom: 1px solid #f1f5f9;
+  flex-shrink: 0;
+}
+
+.btn-back {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: transparent;
+  border: none;
+  color: #0f172a;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.btn-back:hover {
+  background-color: #f1f5f9;
+}
+
+.btn-back svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.5;
+}
+
+.header-title {
+  font-size: 16px;
+  font-weight: 750;
+  color: #0f172a;
+  letter-spacing: -0.2px;
+  margin-left: 8px;
+}
+
+/* Main Content */
+.detail-content {
+  flex: 1;
+  padding: 16px 20px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Foto Barang */
+.item-photo-card {
+  width: 100%;
+  height: 200px;
+  background-color: #f8fafc;
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #f8fafc;
+  display: block;
+}
+
+.item-photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #94a3b8;
+}
+
+.item-badge-pill {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 750;
+  background-color: #e0edff;
+  color: #1768db;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.item-id-pill {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  background-color: rgba(15, 23, 42, 0.7);
+  color: #ffffff;
+  backdrop-filter: blur(4px);
+}
+
+/* Info Utama */
+.item-main-info {
+  background-color: var(--color-white);
+}
+
+.item-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.3px;
+  margin-bottom: 4px;
+}
+
+.item-meta-time {
+  font-size: 11.5px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Detail Sections */
+.info-section {
+  background: #f8fafc;
+  border: 1px solid #edf2f7;
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.info-label {
+  font-size: 11px;
+  font-weight: 750;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.info-label svg {
+  width: 14px;
+  height: 14px;
+  color: #1768db;
+}
+
+.info-value {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.45;
+}
+
+.desc-text {
+  font-weight: 450;
+  color: #334155;
+  white-space: pre-line;
+}
+
+/* Status Card */
+.status-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #f0fdf4 0%, #e6f9ed 100%);
+  border: 1px solid #bbf7d0;
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.status-icon-img {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.status-info-title {
+  font-size: 13px;
+  font-weight: 750;
+  color: #166534;
+}
+
+.status-info-desc {
+  font-size: 11px;
+  color: #15803d;
+  line-height: 1.35;
+  margin-top: 2px;
+}
+
+/* Action Button */
+.btn-home {
+  width: 100%;
+  height: 48px;
+  background-color: var(--color-primary-blue);
+  background-image: linear-gradient(180deg, #1b6fe5, #1257bd);
+  color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  font-size: 14.5px;
+  font-weight: 700;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: var(--shadow-btn);
+  margin-top: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-home:hover {
+  background-image: linear-gradient(180deg, #1665d5, #0e4da8);
+  transform: translateY(-1px);
+}
+
+/* Home Indicator Bar */
+.bottom-bar {
+  padding: 10px 0 8px;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.home-indicator {
+  width: 100px;
+  height: 3.5px;
+  background-color: #000000;
+  border-radius: 99px;
+}

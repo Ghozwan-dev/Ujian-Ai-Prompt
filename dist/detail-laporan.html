@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Detail Laporan Barang Hilang - Barang Temuan">
+  <title>Detail Laporan — Barang Temuan</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/detail-laporan.css">
+</head>
+<body>
+
+  <!-- Mobile Frame Container -->
+  <main class="mobile-frame" role="main">
+
+    <!-- Status Bar (08:40, Signal, Wi-Fi, Battery) -->
+    <div class="status-bar" aria-label="Status Bar">
+      <span class="status-time">08:40</span>
+      <div class="status-icons">
+        <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor" aria-hidden="true">
+          <rect x="0" y="8" width="2.5" height="3" rx="0.5"></rect>
+          <rect x="4" y="5.5" width="2.5" height="5.5" rx="0.5"></rect>
+          <rect x="8" y="3" width="2.5" height="8" rx="0.5"></rect>
+          <rect x="12" y="0" width="2.5" height="11" rx="0.5"></rect>
+        </svg>
+        <svg width="15" height="11" viewBox="0 0 16 12" fill="currentColor" aria-hidden="true">
+          <path d="M8 9.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"></path>
+          <path d="M4.2 7.7a5.5 5.5 0 0 1 7.6 0 .8.8 0 0 1-1.1 1.1 4 4 0 0 0-5.4 0 .8.8 0 0 1-1.1-1.1z"></path>
+          <path d="M1.5 5a9.2 9.2 0 0 1 13 0 .8.8 0 0 1-1.1 1.1 7.6 7.6 0 0 0-10.8 0 .8.8 0 0 1-1.1-1.1z"></path>
+        </svg>
+        <svg width="22" height="11" viewBox="0 0 24 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+          <rect x="1" y="1" width="19" height="10" rx="3"></rect>
+          <rect x="3" y="3" width="12" height="6" rx="1.5" fill="currentColor"></rect>
+          <path d="M22 4.5v3" stroke-linecap="round"></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="app-header">
+      <a href="index.html" class="btn-back" title="Kembali ke Beranda" aria-label="Kembali ke Beranda">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </a>
+      <h1 class="header-title">Detail Laporan</h1>
+    </header>
+
+    <!-- Detail Content -->
+    <div class="detail-content">
+
+      <!-- Foto Barang & Badge -->
+      <div class="item-photo-card">
+        <span class="item-badge-pill" id="detailBadge">Hilang</span>
+        <span class="item-id-pill" id="detailId">ID: #LH-001</span>
+        <img id="detailPhoto" class="item-photo-img" src="assets/item-supra.png" alt="Foto Barang">
+      </div>
+
+      <!-- Info Utama: Nama & Tanggal Submit -->
+      <div class="item-main-info">
+        <h2 class="item-title" id="detailTitle">Motor SupraX</h2>
+        <div class="item-meta-time" id="detailTime">Dilaporkan pada hari ini</div>
+      </div>
+
+      <!-- Kategori -->
+      <section class="info-section">
+        <div class="info-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Kategori Barang
+        </div>
+        <div class="info-value" id="detailCategory">Kendaraan</div>
+      </section>
+
+      <!-- Deskripsi -->
+      <section class="info-section">
+        <div class="info-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="8" y1="6" x2="21" y2="6"></line>
+            <line x1="8" y1="12" x2="21" y2="12"></line>
+            <line x1="8" y1="18" x2="21" y2="18"></line>
+            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+          </svg>
+          Deskripsi Ciri-Ciri
+        </div>
+        <p class="info-value desc-text" id="detailDesc">Deskripsi belum tersedia.</p>
+      </section>
+
+      <!-- Lokasi -->
+      <section class="info-section">
+        <div class="info-label" id="labelLocation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span id="textLabelLocation">Lokasi Terakhir Terlihat</span>
+        </div>
+        <div class="info-value" id="detailLocation">Pilih Lokasi</div>
+      </section>
+
+      <!-- Tanggal -->
+      <section class="info-section">
+        <div class="info-label" id="labelDate">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span id="textLabelDate">Tanggal Kehilangan</span>
+        </div>
+        <div class="info-value" id="detailDate">Pilih Tanggal</div>
+      </section>
+
+      <!-- Status Verifikasi -->
+      <div class="status-card">
+        <img src="assets/shield-verified.png" alt="Terverifikasi" class="status-icon-img">
+        <div>
+          <div class="status-info-title" id="statusTitle">Menunggu Pencocokan</div>
+          <div class="status-info-desc" id="statusDesc">Laporan aktif. Sistem akan memberi notifikasi saat ditemukan barang dengan ciri serupa.</div>
+        </div>
+      </div>
+
+      <!-- Tombol Kembali ke Beranda -->
+      <a href="index.html" class="btn-home">Kembali ke Beranda</a>
+
+    </div>
+
+    <!-- Home Indicator -->
+    <div class="bottom-bar" aria-hidden="true">
+      <div class="home-indicator"></div>
+    </div>
+
+  </main>
+
+  <script>
+    (function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const targetId = urlParams.get('id');
+
+      let reportData = null;
+
+      // 1. Coba cari di list laporan temuan atau kehilangan
+      const sources = ['barangtemuan_laporan_temuan', 'barangtemuan_laporan_hilang'];
+      for (const key of sources) {
+        try {
+          const stored = localStorage.getItem(key);
+          if (stored) {
+            const list = JSON.parse(stored);
+            if (Array.isArray(list) && list.length > 0) {
+              if (targetId) {
+                const found = list.find(item => item.id === targetId);
+                if (found) {
+                  reportData = found;
+                  break;
+                }
+              }
+            }
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      // 2. Coba cari di baseline catalog aplikasi
+      if (!reportData && targetId) {
+        const baseCatalog = [
+          {
+            id: 'LT-JAM-01',
+            nama: 'Jam Tangan',
+            lokasi: 'Pom Bensin Waru',
+            tanggal: '28 Nov 2026',
+            foto: 'assets/item-jam.png',
+            tipe: 'Ditemukan',
+            kategori: 'Aksesoris',
+            deskripsi: 'Jam tangan Fossil tali kulit warna coklat, dial hitam angka romawi, kondisi mulus.'
+          },
+          {
+            id: 'LH-SUPRA-01',
+            nama: 'Motor SupraX',
+            lokasi: 'Mts Gaccan Solo',
+            tanggal: '01 Des 2026',
+            foto: 'assets/item-supra.png',
+            tipe: 'Hilang',
+            kategori: 'Kendaraan',
+            deskripsi: 'Motor Honda Supra X 125 warna hitam strip ungu, kondisi mulus, spion kanan ada stiker, plat nomor Solo.'
+          },
+          {
+            id: 'LH-IPHONE-01',
+            nama: 'Iphone 18 Pro 1 Tb',
+            lokasi: 'Kamtout UMS',
+            tanggal: '16 Nov 2026',
+            foto: 'assets/item-iphone.png',
+            tipe: 'Hilang',
+            kategori: 'Elektronik',
+            deskripsi: 'iPhone 18 Pro 1 Tb warna maroon dengan dus lengkap, tertinggal di area kampus.'
+          }
+        ];
+        const foundBase = baseCatalog.find(item => item.id === targetId);
+        if (foundBase) reportData = foundBase;
+      }
+
+      // 2. Fallback ke latest report
+      if (!reportData) {
+        try {
+          const latest = localStorage.getItem('barangtemuan_latest_report');
+          if (latest) {
+            reportData = JSON.parse(latest);
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      // 3. Fallback dummy jika belum ada laporan tersimpan
+      if (!reportData) {
+        reportData = {
+          id: 'LT-DEFAULT',
+          nama: 'Jam Tangan',
+          deskripsi: 'Jam tangan Fossil tali kulit warna coklat, dial hitam angka romawi, kondisi mulus.',
+          lokasi: 'Pom Bensin Waru',
+          tanggal: '28 Nov 2026',
+          foto: 'assets/item-jam.png',
+          tipe: 'Ditemukan',
+          kategori: 'Aksesoris',
+          createdAt: new Date().toISOString()
+        };
+      }
+
+      // Render data ke elemen halaman
+      const isTemuan = (reportData.tipe === 'Ditemukan');
+      const badgeEl = document.getElementById('detailBadge');
+      badgeEl.textContent = reportData.tipe || (isTemuan ? 'Ditemukan' : 'Hilang');
+
+      if (isTemuan) {
+        badgeEl.style.backgroundColor = '#dcfce7';
+        badgeEl.style.color = '#15803d';
+        document.getElementById('textLabelLocation').textContent = 'Lokasi Ditemukan';
+        document.getElementById('textLabelDate').textContent = 'Tanggal Ditemukan';
+        document.getElementById('statusTitle').textContent = 'Barang Temuan Tercatat';
+        document.getElementById('statusDesc').textContent = 'Laporan aktif. Siap dicocokkan dengan laporan barang hilang dari pemilik yang sah.';
+      } else {
+        badgeEl.style.backgroundColor = '#e0edff';
+        badgeEl.style.color = '#1768db';
+        document.getElementById('textLabelLocation').textContent = 'Lokasi Terakhir Terlihat';
+        document.getElementById('textLabelDate').textContent = 'Tanggal Kehilangan';
+        document.getElementById('statusTitle').textContent = 'Menunggu Pencocokan';
+        document.getElementById('statusDesc').textContent = 'Laporan aktif. Sistem akan memberi notifikasi saat ditemukan barang dengan ciri serupa.';
+      }
+
+      document.getElementById('detailTitle').textContent = reportData.nama || 'Barang Laporan';
+      document.getElementById('detailDesc').textContent = reportData.deskripsi || '-';
+      document.getElementById('detailLocation').textContent = reportData.lokasi || '-';
+      document.getElementById('detailDate').textContent = reportData.tanggal || '-';
+
+      // Kategori
+      const categoryEl = document.getElementById('detailCategory');
+      if (categoryEl) {
+        const catVal = reportData.kategori || 
+          (reportData.nama && /motor|mobil|helm|sepeda/i.test(reportData.nama) ? 'Kendaraan' :
+          (reportData.nama && /jam|tas|dompet|kacamata/i.test(reportData.nama) ? 'Aksesoris' :
+          (reportData.nama && /iphone|hp|laptop|ipad|samsung/i.test(reportData.nama) ? 'Elektronik' : 'Barang Pribadi')));
+        categoryEl.textContent = catVal;
+      }
+
+      const displayId = reportData.id || (isTemuan ? 'LT-001' : 'LH-001');
+      document.getElementById('detailId').textContent = displayId.startsWith('#') ? displayId : '#' + displayId;
+
+      if (reportData.createdAt) {
+        try {
+          const d = new Date(reportData.createdAt);
+          const timeStr = d.toLocaleDateString('id-ID', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          });
+          document.getElementById('detailTime').textContent = 'Dilaporkan pada ' + timeStr;
+        } catch(e) {
+          document.getElementById('detailTime').textContent = 'Dilaporkan baru saja';
+        }
+      }
+
+      const photoEl = document.getElementById('detailPhoto');
+      if (reportData.foto) {
+        photoEl.src = reportData.foto;
+        photoEl.style.display = 'block';
+      } else {
+        photoEl.src = isTemuan ? 'assets/icon-box-check.png' : 'assets/icon-sad-backpack.png';
+      }
+    })();
+  </script>
+</body>
+</html>
