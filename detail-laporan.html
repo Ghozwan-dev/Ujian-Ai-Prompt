@@ -302,6 +302,22 @@
       } else {
         photoEl.src = isTemuan ? 'assets/icon-box-check.png' : 'assets/icon-sad-backpack.png';
       }
+
+      // Cek apakah datang dari halaman Riwayat
+      const isFromRiwayat = urlParams.get('from') === 'riwayat' || (document.referrer && document.referrer.includes('riwayat.html'));
+      if (isFromRiwayat) {
+        const btnBack = document.querySelector('.btn-back');
+        if (btnBack) {
+          btnBack.href = 'riwayat.html';
+          btnBack.title = 'Kembali ke Riwayat';
+          btnBack.setAttribute('aria-label', 'Kembali ke Riwayat');
+        }
+        const btnHome = document.querySelector('.btn-home');
+        if (btnHome) {
+          btnHome.href = 'riwayat.html';
+          btnHome.textContent = 'Kembali ke Riwayat';
+        }
+      }
     })();
   </script>
 </body>

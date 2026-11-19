@@ -277,14 +277,45 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================
-  // 7. FEEDBACK TOMBOL NOTIFIKASI
+  // 7. FEEDBACK & NAVIGASI TOMBOL NOTIFIKASI
   // ==========================================
   const notifBtn = document.querySelector('.btn-notification');
+  const headerNotifDot = document.getElementById('headerNotifDot');
   if (notifBtn) {
     notifBtn.addEventListener('click', () => {
-      console.info('[Barang Temuan] Notifikasi dibuka.');
+      window.location.href = 'notifikasi.html';
     });
   }
+
+  function checkUnreadNotifications() {
+    try {
+      const stored = localStorage.getItem('barangtemuan_notifications');
+      let notifs = null;
+      if (stored) {
+        notifs = JSON.parse(stored);
+      } else {
+        // Notifikasi default awal ada 3 yang belum dibaca
+        notifs = [
+          { isRead: false },
+          { isRead: false },
+          { isRead: false }
+        ];
+      }
+
+      if (Array.isArray(notifs)) {
+        const unreadCount = notifs.filter(n => !n.isRead).length;
+        if (headerNotifDot) {
+          headerNotifDot.style.display = unreadCount > 0 ? 'block' : 'none';
+        }
+        if (notifBtn && unreadCount > 0) {
+          notifBtn.setAttribute('title', `Notifikasi (${unreadCount} belum dibaca)`);
+        }
+      }
+    } catch (e) {}
+  }
+  checkUnreadNotifications();
+  window.addEventListener('pageshow', checkUnreadNotifications);
+  window.addEventListener('storage', checkUnreadNotifications);
 
   // ==========================================
   // 8. CEK USER LOGIN DI LOCALSTORAGE
@@ -294,14 +325,14 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const user = JSON.parse(currentUserData);
       if (user && user.name) {
-        const sayaTab = document.querySelector('.nav-item:last-child');
-        if (sayaTab) {
-          const label = sayaTab.querySelector('span');
+        const profileTab = document.querySelector('.nav-item:last-child');
+        if (profileTab) {
+          profileTab.setAttribute('href', 'profile.html');
+          profileTab.setAttribute('title', `Profile: ${user.name}`);
+          const label = profileTab.querySelector('span');
           if (label) {
-            label.textContent = user.name.split(' ')[0]; // Nama depan
-            label.style.fontWeight = '700';
+            label.textContent = 'Profile';
           }
-          sayaTab.setAttribute('title', `Akun: ${user.name}`);
         }
       }
     } catch (e) {}

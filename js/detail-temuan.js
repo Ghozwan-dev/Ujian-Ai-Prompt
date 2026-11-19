@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ownerName = document.getElementById('ownerName');
   const ownerPhone = document.getElementById('ownerPhone');
   const btnContact = document.getElementById('btnContact');
+  const btnChatAction = document.getElementById('btnChatAction');
   const btnMarkContacted = document.getElementById('btnMarkContacted');
   const markContactedIcon = document.getElementById('markContactedIcon');
   const markContactedText = document.getElementById('markContactedText');
@@ -108,6 +109,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const cleanPhone = displayPhone.replace(/[^0-9+]/g, '');
   btnContact.href = 'tel:' + cleanPhone;
 
+  // Set URL tombol kirim pesan (chat)
+  if (btnChatAction) {
+    const chatParams = new URLSearchParams({
+      targetUser: displayOwner,
+      phone: displayPhone,
+      reportId: currentReport.id || '',
+      reportName: displayName,
+      reportNum: displayReportNum,
+      reportPhoto: currentReport.foto || '',
+      reportType: currentReport.tipe || 'Hilang'
+    });
+    btnChatAction.href = 'chat.html?' + chatParams.toString();
+  }
+
   // Cek Status Komunikasi yang tersimpan
   const reportKey = currentReport.id || 'default_report';
   const isContactedKey = 'barangtemuan_contacted_' + reportKey;
@@ -143,7 +158,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Tombol Kembali
   btnBack.addEventListener('click', (e) => {
-    if (document.referrer && document.referrer.includes('hasil-pencocokan.html')) {
+    if (urlParams.get('from') === 'riwayat' || (document.referrer && document.referrer.includes('riwayat.html'))) {
+      e.preventDefault();
+      window.location.href = 'riwayat.html';
+    } else if (document.referrer && document.referrer.includes('hasil-pencocokan.html')) {
       e.preventDefault();
       window.history.back();
     }

@@ -347,6 +347,21 @@ document.addEventListener('DOMContentLoaded', () => {
     submitBtn.disabled = true;
 
     setTimeout(() => {
+      let currentUserId = null;
+      let currentUserEmail = null;
+      let pelaporName = 'Pengguna';
+      try {
+        const u = localStorage.getItem('barangtemuan_current_user');
+        if (u) {
+          const parsed = JSON.parse(u);
+          if (parsed) {
+            currentUserId = parsed.id || null;
+            currentUserEmail = parsed.email || null;
+            if (parsed.name) pelaporName = parsed.name;
+          }
+        }
+      } catch (e) {}
+
       const newReport = {
         id: 'LH-' + Date.now(),
         nama: nameVal,
@@ -356,6 +371,11 @@ document.addEventListener('DOMContentLoaded', () => {
         rawTanggal: dateVal,
         foto: currentPhotoData,
         tipe: 'Hilang',
+        status: 'Menunggu',
+        userId: currentUserId,
+        userEmail: currentUserEmail,
+        pelapor: pelaporName,
+        isUserReport: true,
         createdAt: new Date().toISOString()
       };
 
@@ -371,6 +391,25 @@ document.addEventListener('DOMContentLoaded', () => {
       reports.unshift(newReport);
       localStorage.setItem('barangtemuan_laporan_hilang', JSON.stringify(reports));
       localStorage.setItem('barangtemuan_latest_report', JSON.stringify(newReport));
+
+      // Tambahkan notifikasi laporan baru ke sistem notifikasi
+      try {
+        const storedNotifs = localStorage.getItem('barangtemuan_notifications');
+        let notifs = storedNotifs ? JSON.parse(storedNotifs) : [];
+        if (!Array.isArray(notifs)) notifs = [];
+        notifs.unshift({
+          id: 'notif_' + Date.now(),
+          category: 'laporan',
+          subType: 'submitted',
+          title: 'Laporan Berhasil Dikirim',
+          description: `Laporan kehilangan ${newReport.nama} (${newReport.nomorLaporan}) berhasil dikirim ke sistem.`,
+          time: 'Baru saja',
+          timestamp: Date.now(),
+          isRead: false,
+          targetUrl: 'detail-laporan.html?id=' + encodeURIComponent(newReport.id)
+        });
+        localStorage.setItem('barangtemuan_notifications', JSON.stringify(notifs));
+      } catch(e) {}
 
       submitBtn.classList.remove('is-loading');
       submitBtn.disabled = false;

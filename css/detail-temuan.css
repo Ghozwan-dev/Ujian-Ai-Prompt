@@ -293,6 +293,40 @@ body {
   transform: translateY(0);
 }
 
+/* Tombol Kirim Pesan (Chat) */
+.btn-chat-action {
+  width: 100%;
+  height: 46px;
+  background-color: #eff6ff;
+  border: 1.5px solid var(--color-primary-blue);
+  color: var(--color-primary-blue);
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-chat-action svg {
+  width: 18px;
+  height: 18px;
+}
+
+.btn-chat-action:hover {
+  background-color: #dbeafe;
+  transform: translateY(-1px);
+}
+
+.btn-chat-action:active {
+  transform: translateY(0);
+}
+
 /* 6. Tombol Tandai Sudah Dihubungi */
 .btn-mark-contacted {
   width: 100%;
