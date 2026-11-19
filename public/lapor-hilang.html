@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Laporkan Barang Hilang - Barang Temuan">
+  <title>Laporkan Barang Hilang — Barang Temuan</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/lapor-hilang.css">
+</head>
+<body>
+
+  <!-- Mobile Frame Container -->
+  <div class="mobile-frame">
+
+    <!-- Status Bar (08:40, Signal, Wi-Fi, Battery) -->
+    <div class="status-bar" aria-label="Status Bar">
+      <span class="status-time">08:40</span>
+      <div class="status-icons">
+        <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor" aria-hidden="true">
+          <rect x="0" y="8" width="2.5" height="3" rx="0.5"></rect>
+          <rect x="4" y="5.5" width="2.5" height="5.5" rx="0.5"></rect>
+          <rect x="8" y="3" width="2.5" height="8" rx="0.5"></rect>
+          <rect x="12" y="0" width="2.5" height="11" rx="0.5"></rect>
+        </svg>
+        <svg width="15" height="11" viewBox="0 0 16 12" fill="currentColor" aria-hidden="true">
+          <path d="M8 9.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"></path>
+          <path d="M4.2 7.7a5.5 5.5 0 0 1 7.6 0 .8.8 0 0 1-1.1 1.1 4 4 0 0 0-5.4 0 .8.8 0 0 1-1.1-1.1z"></path>
+          <path d="M1.5 5a9.2 9.2 0 0 1 13 0 .8.8 0 0 1-1.1 1.1 7.6 7.6 0 0 0-10.8 0 .8.8 0 0 1-1.1-1.1z"></path>
+        </svg>
+        <svg width="22" height="11" viewBox="0 0 24 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+          <rect x="1" y="1" width="19" height="10" rx="3"></rect>
+          <rect x="3" y="3" width="12" height="6" rx="1.5" fill="currentColor"></rect>
+          <path d="M22 4.5v3" stroke-linecap="round"></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- 1. Header -->
+    <header class="app-header">
+      <a href="index.html" class="btn-back" title="Kembali ke Beranda" aria-label="Kembali ke Beranda">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </a>
+      <h1 class="header-title">Laporkan Barang Hilang</h1>
+    </header>
+
+    <!-- 2. Form Laporan -->
+    <form id="reportForm" class="report-form" novalidate>
+
+      <!-- A. Upload Foto -->
+      <div class="upload-wrapper" id="uploadWrapper">
+        <div class="upload-area" id="uploadArea" role="button" tabindex="0" aria-label="Unggah Foto Barang">
+          <input type="file" id="photoInput" accept="image/png, image/jpeg, image/jpg" style="display: none;">
+          
+          <div class="upload-placeholder" id="uploadPlaceholder">
+            <div class="camera-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+            </div>
+            <span class="upload-title">Unggah Foto</span>
+            <span class="upload-subtitle">(JPG, PNG)</span>
+          </div>
+
+          <div class="upload-preview" id="uploadPreview">
+            <img id="previewImg" class="preview-img" alt="Pratinjau Foto Barang">
+            <button type="button" class="btn-remove-photo" id="btnRemovePhoto" title="Hapus foto" aria-label="Hapus foto">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="error-message" id="uploadError" role="alert">Silakan unggah foto barang.</div>
+      </div>
+
+      <!-- B. Nama Barang -->
+      <div class="form-group" id="nameGroup">
+        <label for="itemNameInput" class="form-label">Nama Barang</label>
+        <input 
+          type="text" 
+          id="itemNameInput" 
+          name="itemName" 
+          class="form-input" 
+          placeholder="Contoh : Motor SupraX" 
+          required
+        >
+        <div class="error-message" id="nameError" role="alert">Nama barang wajib diisi.</div>
+      </div>
+
+      <!-- C. Deskripsi -->
+      <div class="form-group" id="descGroup">
+        <label for="itemDescInput" class="form-label">Deskripsi</label>
+        <textarea 
+          id="itemDescInput" 
+          name="itemDesc" 
+          class="form-textarea" 
+          placeholder="Jelaskan ciri-ciri barang..." 
+          required
+        ></textarea>
+        <div class="error-message" id="descError" role="alert">Deskripsi ciri-ciri barang wajib diisi.</div>
+      </div>
+
+      <!-- D. Lokasi Terakhir Terlihat -->
+      <div class="form-group" id="locationGroup">
+        <label class="form-label">Lokasi Terakhir Terlihat</label>
+        <input type="hidden" id="locationInput" name="itemLocation" required>
+        <button type="button" class="custom-select-btn" id="locationSelectBtn" aria-haspopup="dialog" aria-label="Pilih Lokasi Terakhir Terlihat">
+          <div class="select-left">
+            <span class="select-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </span>
+            <span class="select-text" id="locationText">Pilih Lokasi</span>
+          </div>
+          <svg class="select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+        <div class="error-message" id="locationError" role="alert">Silakan pilih lokasi terakhir terlihat.</div>
+      </div>
+
+      <!-- E. Tanggal Kehilangan -->
+      <div class="form-group" id="dateGroup">
+        <label class="form-label">Tanggal Kehilangan</label>
+        <button type="button" class="custom-select-btn" id="dateSelectBtn" aria-haspopup="dialog" aria-label="Pilih Tanggal Kehilangan">
+          <div class="select-left">
+            <span class="select-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </span>
+            <span class="select-text" id="dateText">Pilih Tanggal</span>
+          </div>
+          <svg class="select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+        <input type="hidden" id="dateInput" name="itemDate" required>
+        <div class="error-message" id="dateError" role="alert">Silakan pilih tanggal kehilangan.</div>
+      </div>
+
+      <!-- 3. Tombol Utama -->
+      <button type="submit" class="btn-submit" id="submitBtn">
+        <span class="btn-text">Lanjutkan</span>
+        <span class="btn-spinner" aria-hidden="true"></span>
+      </button>
+
+    </form>
+
+  </div>
+
+  <!-- Bottom Sheet / Modal Lokasi -->
+  <div class="location-modal" id="locationModal" aria-hidden="true" role="dialog" aria-label="Pilih Lokasi">
+    <div class="location-sheet">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <div class="sheet-header">
+        <h2 class="sheet-title">Pilih Lokasi</h2>
+        <button type="button" class="sheet-close-btn" id="locationCloseBtn" aria-label="Tutup">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <input type="text" id="locationSearch" class="sheet-search-input" placeholder="Cari atau ketik nama lokasi...">
+
+      <ul class="location-list">
+        <li class="location-item" data-location="Mts Gaccan Solo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span>Mts Gaccan Solo</span>
+        </li>
+        <li class="location-item" data-location="Pom Bensin Waru">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span>Pom Bensin Waru</span>
+        </li>
+        <li class="location-item" data-location="Kamtout UMS">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span>Kamtout UMS</span>
+        </li>
+        <li class="location-item" data-location="Solo Grand Mall">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span>Solo Grand Mall</span>
+        </li>
+        <li class="location-item" data-location="Stasiun Solo Balapan">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span>Stasiun Solo Balapan</span>
+        </li>
+        <li class="location-item" data-location="Terminal Tirtonadi">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span>Terminal Tirtonadi</span>
+        </li>
+        <li class="location-item" data-location="Masjid Raya Sheikh Zayed">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span>Masjid Raya Sheikh Zayed</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bottom Sheet / Modal Tanggal -->
+  <div class="location-modal" id="dateModal" aria-hidden="true" role="dialog" aria-label="Pilih Tanggal Kehilangan">
+    <div class="location-sheet">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <div class="sheet-header">
+        <h2 class="sheet-title">Pilih Tanggal Kehilangan</h2>
+        <button type="button" class="sheet-close-btn" id="dateCloseBtn" aria-label="Tutup">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div style="font-size: 11px; font-weight: 750; color: #64748b; letter-spacing: 0.3px; margin-bottom: 8px;">PILIHAN CEPAT</div>
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 16px;">
+        <button type="button" class="btn-quick-date" data-offset="0">Hari Ini (17 Nov)</button>
+        <button type="button" class="btn-quick-date" data-offset="1">Kemarin (16 Nov)</button>
+        <button type="button" class="btn-quick-date" data-offset="2">2 Hari Lalu (15 Nov)</button>
+        <button type="button" class="btn-quick-date" data-offset="7">1 Minggu Lalu (10 Nov)</button>
+      </div>
+
+      <div style="font-size: 11px; font-weight: 750; color: #64748b; letter-spacing: 0.3px; margin-bottom: 8px;">PILIH DARI KALENDER</div>
+      <div style="display: flex; gap: 8px;">
+        <input type="date" id="modalDatePicker" class="form-input" style="flex: 1;" max="2026-11-17">
+        <button type="button" id="btnApplyCustomDate" class="btn-submit" style="width: auto; padding: 0 18px; margin: 0; height: 44px; border-radius: 12px; font-size: 13px;">Pilih</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Konfirmasi Sukses -->
+  <div class="success-modal" id="successModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="success-card">
+      <div class="success-icon-badge" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      </div>
+      <h2 class="success-title">Laporan Terkirim!</h2>
+      <p class="success-desc">Laporan barang hilang Anda telah berhasil dicatat ke sistem dan siap dicocokkan dengan barang temuan.</p>
+      <button type="button" class="btn-success-done" id="btnSuccessDone">Kembali ke Beranda</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/lapor-hilang.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1768db">
+  <meta name="description" content="Masuk ke portal Barang Temuan untuk menemukan atau melaporkan barang yang hilang.">
+  <title>Masuk — Barang Temuan</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Ambient Light Accents -->
+  <div class="ambient-glow ambient-glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow ambient-glow-2" aria-hidden="true"></div>
+
+  <div class="login-wrapper">
+
+    <!-- Top Navigation (Mobile Friendly) -->
+    <nav class="top-nav" aria-label="Navigasi Halaman">
+      <a href="index.html" class="back-link" title="Kembali ke Beranda">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Beranda</span>
+      </a>
+    </nav>
+
+    <!-- Main Card Container -->
+    <main class="login-card">
+
+      <!-- Header: Logo Asli Barang Temuan & Heading -->
+      <header class="brand-header">
+        <!-- Logo Asli Barang Temuan -->
+        <a href="index.html" class="brand" title="Barang Temuan">
+          <img src="assets/logo.png" alt="Logo Barang Temuan" style="height: 48px; width: auto; object-fit: contain; margin-bottom: 4px;">
+        </a>
+
+        <!-- Ilustrasi kecil bertema pencarian barang -->
+        <div class="theme-badge" aria-hidden="true" title="Pencarian & Penemuan">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+        </div>
+
+        <!-- Main Content Texts (Sesuai Ketentuan) -->
+        <h1 class="page-title">Selamat Datang Kembali!</h1>
+        <p class="page-subtitle">Masuk untuk menemukan atau melaporkan barang.</p>
+      </header>
+
+      <!-- Form Login -->
+      <form id="loginForm" class="login-form" novalidate>
+
+        <!-- Input 1: Email atau Nomor HP -->
+        <div class="form-group" id="identifierGroup">
+          <label for="identifierInput" class="form-label">Email atau Nomor HP</label>
+          <div class="input-wrapper">
+            <span class="input-icon-left" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </span>
+            <input 
+              type="text" 
+              id="identifierInput" 
+              name="identifier" 
+              class="form-input" 
+              placeholder="contoh@email.com atau 0812xxxxxxxx" 
+              autocomplete="username"
+              required
+            >
+          </div>
+          <div class="error-message" id="identifierError" role="alert">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            <span class="error-text">Email atau nomor HP wajib diisi.</span>
+          </div>
+        </div>
+
+        <!-- Input 2: Password -->
+        <div class="form-group" id="passwordGroup">
+          <label for="passwordInput" class="form-label">Password</label>
+          <div class="input-wrapper">
+            <span class="input-icon-left" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </span>
+            <input 
+              type="password" 
+              id="passwordInput" 
+              name="password" 
+              class="form-input" 
+              placeholder="Masukkan password Anda" 
+              autocomplete="current-password"
+              required
+            >
+            <!-- Ikon untuk menampilkan atau menyembunyikan password -->
+            <button 
+              type="button" 
+              class="password-toggle-btn" 
+              id="togglePasswordBtn" 
+              aria-label="Tampilkan kata sandi" 
+              title="Tampilkan kata sandi"
+            >
+              <!-- Ikon Mata Terbuka -->
+              <svg class="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              <!-- Ikon Mata Tertutup (Eye Off) -->
+              <svg class="icon-eye-off" style="display: none;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                <line x1="1" y1="1" x2="23" y2="23"></line>
+              </svg>
+            </button>
+          </div>
+          <div class="error-message" id="passwordError" role="alert">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            <span class="error-text">Password wajib diisi.</span>
+          </div>
+        </div>
+
+        <!-- Helper Row: Ingat Saya & Lupa Password -->
+        <div class="form-helper-row">
+          <label class="remember-label">
+            <input type="checkbox" id="rememberMe" name="remember">
+            <span>Ingat saya</span>
+          </label>
+          <a href="#forgot-password" class="forgot-link" id="forgotPasswordLink">Lupa Password?</a>
+        </div>
+
+        <!-- Tombol Utama "Masuk" -->
+        <button type="submit" class="btn-primary" id="submitBtn">
+          <span class="btn-text">Masuk</span>
+          <span class="btn-spinner" aria-hidden="true"></span>
+        </button>
+
+        <!-- Feedback Banner Sistem -->
+        <div class="system-alert success" id="systemAlert" role="status" aria-live="polite">
+          <div class="system-alert-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <div class="system-alert-content">
+            <div class="system-alert-title" id="alertTitle">Masuk Berhasil</div>
+            <div class="system-alert-desc" id="alertDesc">Selamat datang kembali! Mengarahkan ke Beranda...</div>
+          </div>
+        </div>
+
+      </form>
+
+      <!-- Bagian Registrasi -->
+      <footer class="register-section">
+        <span>Belum punya akun?</span>
+        <a href="register.html" class="register-link" id="registerLink">Daftar Sekarang</a>
+      </footer>
+
+    </main>
+
+    <!-- Footer Copyright / Metadata -->
+    <footer class="page-footer">
+      <p>&copy; 2026 Barang Temuan. Semua hak dilindungi.</p>
+    </footer>
+
+  </div>
+
+  <!-- Modal Navigasi Proyek (Lupa Password & Registrasi) -->
+  <div class="modal-overlay" id="navModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-icon-badge">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        </div>
+        <div>
+          <h2 class="modal-title" id="modalTitle">Informasi Proyek</h2>
+          <p class="modal-desc" id="modalDesc">Navigasi Alur Aplikasi</p>
+        </div>
+      </div>
+      <div class="modal-body" id="modalBody">
+        Navigasi telah disiapkan sesuai rancangan alur proyek Barang Temuan.
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" id="modalCloseBtn">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/script.js"></script>
+</body>
+</html>

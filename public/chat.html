@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Obrolan Pribadi — Barang Temuan">
+  <title>Chat — Barang Temuan</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+
+  <!-- Mobile Frame Container -->
+  <main class="mobile-frame" role="main">
+
+    <!-- Status Bar (08:40, Signal, Wi-Fi, Battery) -->
+    <div class="status-bar" aria-label="Status Bar">
+      <span class="status-time">08:40</span>
+      <div class="status-icons">
+        <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor" aria-hidden="true">
+          <rect x="0" y="8" width="2.5" height="3" rx="0.5"></rect>
+          <rect x="4" y="5.5" width="2.5" height="5.5" rx="0.5"></rect>
+          <rect x="8" y="3" width="2.5" height="8" rx="0.5"></rect>
+          <rect x="12" y="0" width="2.5" height="11" rx="0.5"></rect>
+        </svg>
+        <svg width="15" height="11" viewBox="0 0 16 12" fill="currentColor" aria-hidden="true">
+          <path d="M8 9.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"></path>
+          <path d="M4.2 7.7a5.5 5.5 0 0 1 7.6 0 .8.8 0 0 1-1.1 1.1 4 4 0 0 0-5.4 0 .8.8 0 0 1-1.1-1.1z"></path>
+          <path d="M1.5 5a9.2 9.2 0 0 1 13 0 .8.8 0 0 1-1.1 1.1 7.6 7.6 0 0 0-10.8 0 .8.8 0 0 1-1.1-1.1z"></path>
+        </svg>
+        <svg width="22" height="11" viewBox="0 0 24 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+          <rect x="1" y="1" width="19" height="10" rx="3"></rect>
+          <rect x="3" y="3" width="12" height="6" rx="1.5" fill="currentColor"></rect>
+          <path d="M22 4.5v3" stroke-linecap="round"></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- 1. Header Chat (Tombol Kembali, Avatar, Info Pengguna, Panggilan) -->
+    <header class="chat-header">
+      <a href="pesan.html" class="btn-back" id="btnBack" title="Kembali ke Pesan" aria-label="Kembali ke Pesan">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- Profil Pengguna -->
+      <div class="chat-user-profile">
+        <div class="chat-avatar-wrap">
+          <svg class="chat-avatar-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+          </svg>
+          <span class="online-dot" id="onlineDot" title="Online"></span>
+        </div>
+        <div class="chat-user-info">
+          <h1 class="chat-user-name" id="chatUserName">Rina Amelia</h1>
+          <span class="chat-user-status" id="chatUserStatus">Online</span>
+        </div>
+      </div>
+
+      <!-- Action: Panggilan Telepon -->
+      <a href="tel:082387433645" class="btn-call" id="btnCall" title="Panggil Pengguna" aria-label="Panggil Pengguna">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.4 11.4 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.57 3.57 1 1 0 01-.25 1.02l-2.2 2.2z"></path>
+        </svg>
+      </a>
+    </header>
+
+    <!-- 2. Konteks Laporan Barang Terkait (Jika ada) -->
+    <div class="report-context-banner" id="reportContextBanner" style="display: none;">
+      <div class="rcb-inner">
+        <div class="rcb-thumb-wrap">
+          <img src="assets/item-iphone.png" alt="Barang Terkait" id="rcbPhoto" class="rcb-photo">
+        </div>
+        <div class="rcb-info">
+          <div class="rcb-top-row">
+            <span class="rcb-badge" id="rcbBadge">Hilang</span>
+            <span class="rcb-report-num" id="rcbNum">#4867284-01</span>
+          </div>
+          <div class="rcb-item-name" id="rcbItemName">Iphone 18 Pro</div>
+        </div>
+        <a href="detail-temuan.html" class="rcb-detail-link" id="rcbDetailLink">Lihat</a>
+      </div>
+    </div>
+
+    <!-- 3. Area Riwayat Pesan -->
+    <div class="chat-messages-container" id="chatMessagesContainer" role="log" aria-live="polite">
+      <!-- Date Divider -->
+      <div class="date-divider">
+        <span>Hari ini</span>
+      </div>
+
+      <!-- Balon-balon pesan dimuat secara dinamis via js/chat.js -->
+    </div>
+
+    <!-- 4. Form Input Pesan (Fixed Bottom) -->
+    <div class="chat-input-bar">
+      <form class="chat-form" id="chatForm" autocomplete="off">
+        <input 
+          type="text" 
+          id="messageInput" 
+          class="chat-input" 
+          placeholder="Tulis pesan..." 
+          aria-label="Tulis pesan"
+          maxlength="1000"
+        >
+        <button type="submit" class="btn-send" id="btnSend" aria-label="Kirim Pesan">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+
+      <!-- Home Indicator -->
+      <div class="home-indicator" aria-hidden="true"></div>
+    </div>
+
+  </main>
+
+  <!-- Script -->
+  <script src="js/chat.js"></script>
+</body>
+</html>

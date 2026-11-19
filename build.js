@@ -1,6 +1,7 @@
 /**
  * PROJECT BARANG TEMUAN — BUILD SCRIPT
- * Memvalidasi berkas, memeriksa sintaksis JS, dan menyiapkan folder distribusi `dist/`
+ * Memvalidasi berkas, memeriksa sintaksis JS, dan menyiapkan folder distribusi publik (`public/` & `dist/`)
+ * Mendukung parameter `--output <dir>` sesuai spesifikasi build framework
  */
 
 const fs = require('fs');
@@ -12,9 +13,31 @@ console.log('🚀 Memulai proses build Project Barang Temuan...');
 console.log('==============================================\n');
 
 const rootDir = __dirname;
-const distDir = path.join(rootDir, 'dist');
 
-// 1. Validasi Sintaksis Seluruh File JavaScript
+// 1. Parsing argumen output (--output <dir> / -o <dir> / --output=<dir>)
+let outputDirName = 'public'; // Default output: public
+const args = process.argv.slice(2);
+for (let i = 0; i < args.length; i++) {
+  if (args[i] === '--output' || args[i] === '-o') {
+    if (args[i + 1]) {
+      outputDirName = args[i + 1];
+      i++;
+    }
+  } else if (args[i].startsWith('--output=')) {
+    outputDirName = args[i].split('=')[1];
+  }
+}
+
+// Target folder yang akan disiapkan (selalu sinkronkan public dan dist)
+const targetDirs = [path.join(rootDir, outputDirName)];
+if (outputDirName !== 'dist') {
+  targetDirs.push(path.join(rootDir, 'dist'));
+}
+if (outputDirName !== 'public') {
+  targetDirs.push(path.join(rootDir, 'public'));
+}
+
+// 2. Validasi Sintaksis Seluruh File JavaScript
 console.log('📦 [1/3] Memeriksa sintaksis JavaScript di folder js/...');
 const jsDir = path.join(rootDir, 'js');
 if (fs.existsSync(jsDir)) {
@@ -33,13 +56,7 @@ if (fs.existsSync(jsDir)) {
   console.warn('  ! Folder js/ tidak ditemukan');
 }
 
-// 2. Siapkan Folder Dist
-console.log('\n📁 [2/3] Menyiapkan output build di folder dist/...');
-if (fs.existsSync(distDir)) {
-  fs.rmSync(distDir, { recursive: true, force: true });
-}
-fs.mkdirSync(distDir, { recursive: true });
-
+// 3. Salin Berkas ke Folder Output
 function copyRecursive(src, dest) {
   const stat = fs.statSync(src);
   if (stat.isDirectory()) {
@@ -52,27 +69,37 @@ function copyRecursive(src, dest) {
   }
 }
 
-// Salin semua file HTML
 const htmlFiles = fs.readdirSync(rootDir).filter(f => f.endsWith('.html'));
-console.log(`  Menyalin ${htmlFiles.length} halaman HTML...`);
-htmlFiles.forEach(htmlFile => {
-  fs.copyFileSync(path.join(rootDir, htmlFile), path.join(distDir, htmlFile));
-});
 
-// Salin folder css, js, assets jika ada
-['css', 'js', 'assets'].forEach(dirName => {
-  const src = path.join(rootDir, dirName);
-  const dest = path.join(distDir, dirName);
-  if (fs.existsSync(src)) {
-    console.log(`  Menyalin folder ${dirName}/...`);
-    copyRecursive(src, dest);
+targetDirs.forEach(destDir => {
+  const relDest = path.relative(rootDir, destDir);
+  console.log(`\n📁 [2/3] Menyiapkan output build di folder ${relDest}/...`);
+  if (fs.existsSync(destDir)) {
+    fs.rmSync(destDir, { recursive: true, force: true });
   }
+  fs.mkdirSync(destDir, { recursive: true });
+
+  console.log(`  Menyalin ${htmlFiles.length} halaman HTML...`);
+  htmlFiles.forEach(htmlFile => {
+    fs.copyFileSync(path.join(rootDir, htmlFile), path.join(destDir, htmlFile));
+  });
+
+  ['css', 'js', 'assets'].forEach(dirName => {
+    const src = path.join(rootDir, dirName);
+    const dest = path.join(destDir, dirName);
+    if (fs.existsSync(src)) {
+      console.log(`  Menyalin folder ${dirName}/...`);
+      copyRecursive(src, dest);
+    }
+  });
 });
 
-// 3. Selesai
+// 4. Selesai
 console.log('\n✨ [3/3] Verifikasi berkas build:');
 console.log(`  Total berkas HTML : ${htmlFiles.length}`);
-console.log(`  Output direktori  : ${distDir}`);
+targetDirs.forEach(d => {
+  console.log(`  Output direktori  : ${d}`);
+});
 console.log('\n==============================================');
 console.log('✅ BUILD BERHASIL (Build Succeeded)!');
 console.log('==============================================');

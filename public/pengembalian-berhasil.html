@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Pengembalian Barang Berhasil - Barang Temuan">
+  <title>Pengembalian Barang Berhasil — Barang Temuan</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/pengembalian-berhasil.css">
+</head>
+<body>
+
+  <!-- Mobile Frame Container -->
+  <main class="mobile-frame" role="main">
+
+    <!-- Status Bar (08:40, Signal, Wi-Fi, Battery) -->
+    <div class="status-bar" aria-label="Status Bar">
+      <span class="status-time">08:40</span>
+      <div class="status-icons">
+        <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor" aria-hidden="true">
+          <rect x="0" y="8" width="2.5" height="3" rx="0.5"></rect>
+          <rect x="4" y="5.5" width="2.5" height="5.5" rx="0.5"></rect>
+          <rect x="8" y="3" width="2.5" height="8" rx="0.5"></rect>
+          <rect x="12" y="0" width="2.5" height="11" rx="0.5"></rect>
+        </svg>
+        <svg width="15" height="11" viewBox="0 0 16 12" fill="currentColor" aria-hidden="true">
+          <path d="M8 9.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"></path>
+          <path d="M4.2 7.7a5.5 5.5 0 0 1 7.6 0 .8.8 0 0 1-1.1 1.1 4 4 0 0 0-5.4 0 .8.8 0 0 1-1.1-1.1z"></path>
+          <path d="M1.5 5a9.2 9.2 0 0 1 13 0 .8.8 0 0 1-1.1 1.1 7.6 7.6 0 0 0-10.8 0 .8.8 0 0 1-1.1-1.1z"></path>
+        </svg>
+        <svg width="22" height="11" viewBox="0 0 24 12" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+          <rect x="1" y="1" width="19" height="10" rx="3"></rect>
+          <rect x="3" y="3" width="12" height="6" rx="1.5" fill="currentColor"></rect>
+          <path d="M22 4.5v3" stroke-linecap="round"></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content-area">
+
+      <!-- 2. Ilustrasi Utama (Lingkaran Hijau + Centang Putih + Partikel Warna-Warni) -->
+      <div class="illustration-wrap">
+        <img 
+          src="assets/success-return-circle.png" 
+          alt="Pengembalian Barang Berhasil" 
+          class="success-illustration"
+          width="148"
+          height="136"
+        >
+      </div>
+
+      <!-- 3. Judul -->
+      <h1 class="success-title">Berhasil!</h1>
+
+      <!-- 4. Deskripsi -->
+      <p class="success-desc">
+        Barang telah berhasil<br>
+        dikembalikan kepada pemilik
+      </p>
+
+      <!-- 5. Kartu Ucapan Terima Kasih -->
+      <div class="thankyou-card">
+        <!-- Ikon Ilustrasi Jabat Tangan Berwarna Biru -->
+        <div class="handshake-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="currentColor">
+            <path d="M27.5 12h-3.1l-2.6-2.6c-.4-.4-1-.4-1.4 0l-2.7 2.7-2.3-2.3c-1.2-1.2-3.1-1.2-4.2 0l-6.7 6.7c-.4.4-.4 1 0 1.4l4.5 4.5c1.2 1.2 3.1 1.2 4.2 0l1.4-1.4 2.8 2.8c.4.4 1 .4 1.4 0l2.7-2.7 3.5 3.5c.2.2.5.3.7.3s.5-.1.7-.3l2.8-2.8c.4-.4.4-1 0-1.4l-1.4-1.4h2.2c.6 0 1-.4 1-1v-4c0-.6-.4-1-1-1zm-13.8 8.8c-.4.4-1.1.4-1.4 0l-3.8-3.8 5.3-5.3c.4-.4 1.1-.4 1.4 0l1.9 1.9-3.4 3.4c-.4.4-.4 1 0 1.4s1 .4 1.4 0l3.4-3.4 1 1-5.8 5.8z"/>
+          </svg>
+        </div>
+
+        <!-- Teks Kartu Ucapan Terima Kasih -->
+        <p class="thankyou-text">
+          Terima kasih telah<br>
+          membantu menemukan<br>
+          barang yang hilang.
+        </p>
+      </div>
+
+      <!-- 6. Tombol Kembali ke Beranda -->
+      <a href="index.html" class="btn-home" id="btnBackHome">Kembali ke Beranda</a>
+
+    </div>
+
+    <!-- Home Indicator -->
+    <div class="bottom-bar" aria-hidden="true">
+      <div class="home-indicator"></div>
+    </div>
+
+  </main>
+
+  <script>
+    // 7. Simpan Perubahan Status Menjadi "Selesai Dikembalikan"
+    (function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const targetId = urlParams.get('id');
+
+      let saved = false;
+
+      // Update di barangtemuan_laporan_temuan
+      try {
+        const storedTemuan = localStorage.getItem('barangtemuan_laporan_temuan');
+        if (storedTemuan) {
+          const list = JSON.parse(storedTemuan);
+          if (Array.isArray(list)) {
+            let found = false;
+            list.forEach(item => {
+              if (!targetId || item.id === targetId) {
+                item.status = 'Selesai Dikembalikan';
+                found = true;
+              }
+            });
+            if (found) {
+              localStorage.setItem('barangtemuan_laporan_temuan', JSON.stringify(list));
+              saved = true;
+            }
+          }
+        }
+      } catch(e) {
+        console.error(e);
+      }
+
+      // Update di barangtemuan_laporan_hilang
+      try {
+        const storedHilang = localStorage.getItem('barangtemuan_laporan_hilang');
+        if (storedHilang) {
+          const list = JSON.parse(storedHilang);
+          if (Array.isArray(list)) {
+            let found = false;
+            list.forEach(item => {
+              if (!targetId || item.id === targetId) {
+                item.status = 'Selesai Dikembalikan';
+                found = true;
+              }
+            });
+            if (found) {
+              localStorage.setItem('barangtemuan_laporan_hilang', JSON.stringify(list));
+              saved = true;
+            }
+          }
+        }
+      } catch(e) {
+        console.error(e);
+      }
+
+      // Update di barangtemuan_latest_report
+      try {
+        const latest = localStorage.getItem('barangtemuan_latest_report');
+        if (latest) {
+          const parsed = JSON.parse(latest);
+          if (parsed && (!targetId || parsed.id === targetId)) {
+            parsed.status = 'Selesai Dikembalikan';
+            localStorage.setItem('barangtemuan_latest_report', JSON.stringify(parsed));
+            saved = true;
+          }
+        }
+      } catch(e) {
+        console.error(e);
+      }
+
+      // Catat status pengembalian tersendiri
+      const key = targetId ? ('barangtemuan_return_status_' + targetId) : 'barangtemuan_return_status_default';
+      localStorage.setItem(key, 'Selesai Dikembalikan');
+    })();
+  </script>
+</body>
+</html>
