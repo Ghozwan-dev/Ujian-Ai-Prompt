@@ -99,8 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fallback data profil default yang realistis sesuai identitas aplikasi
     if (!currentUser) {
       currentUser = {
-        name: 'Ghozwan Alifi',
-        email: 'ghozwan.alifi@email.com',
+        name: 'Ghozwan',
+        email: 'ghozwan@email.com',
         phone: '0812-3456-7890',
         address: 'Jl. Slamet Riyadi No. 120, Surakarta',
         photo: '',
